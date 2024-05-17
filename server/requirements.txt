@@ -1,0 +1,9 @@
+flask
+flask-cors
+ctgan
+pandas
+prophet
+plotly
+requests
+scikit-learn
+tensorflow

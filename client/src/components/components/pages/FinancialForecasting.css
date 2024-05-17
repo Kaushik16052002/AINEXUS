@@ -1,0 +1,70 @@
+.forecasting-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+  }
+  
+  .form-section,
+  .features-section,
+  .table-section,
+  .forecast-section {
+    margin-bottom: 20px;
+  }
+  
+  .features-section h2,
+  .table-section h2,
+  .forecast-section h2 {
+    margin-bottom: 10px;
+  }
+  
+  .features-section .financial-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  
+  .feature-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .custom-table th,
+  .custom-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .forecast-inputs {
+    display: flex;
+    align-items: center;
+  }
+  
+  .forecast-inputs label {
+    margin-right: 10px;
+  }
+  
+  .forecast-inputs input {
+    margin-right: 10px;
+  }
+  
+  .forecast-inputs button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .forecast-inputs button:hover {
+    background-color: #0056b3;
+  }
+  
