@@ -169,11 +169,12 @@ function DemandForecasting() {
   const [countryOptions, setCountryOptions] = useState([]);
   const [product, setProduct] = useState('');
   const [country, setCountry] = useState('');
-  const [daysToForecast, setDaysToForecast] = useState('');
+  const [yearsToForecast, setYearsToForecast] = useState('');
   const [processing, setProcessing] = useState(false);
   const [forecastPlot, setForecastPlot] = useState(null);
   const [componentsPlot, setComponentsPlot] = useState(null);
   const [error, setError] = useState(null);
+  const [forecastGenerated, setForecastGenerated] = useState(false); // State to track if forecast is generated
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -202,6 +203,7 @@ function DemandForecasting() {
 
   const handleForecast = async () => {
     setProcessing(true);
+    const daysToForecast = yearsToForecast * 365; // Convert years to days
     try {
       const response = await axios.post('http://127.0.0.1:5000/forecast2', {
         product,
@@ -248,6 +250,7 @@ function DemandForecasting() {
 
       setForecastPlot(forecastPlot);
       setComponentsPlot(componentsPlot);
+      setForecastGenerated(true); // Set forecast generated to true
     } catch (error) {
       setError('Error fetching forecast');
       console.error('Error fetching forecast: ', error);
@@ -256,16 +259,48 @@ function DemandForecasting() {
     }
   };
 
+  const handleDownloadCSV = async () => {
+    // Prepare CSV data
+    let csvData = "date,actual,forecast\n"; // Header
+    const forecastDates = forecastPlot.data[0].x;
+    const actualValues = forecastPlot.data[1].y;
+    const forecastValues = forecastPlot.data[0].y;
+  
+    forecastDates.forEach((date, index) => {
+      const actual = actualValues[index];
+      const forecast = forecastValues[index];
+      csvData += `${date},${actual},${forecast}\n`;
+    });
+  
+    // Create Blob
+    const blob = new Blob([csvData], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+  
+    // Create anchor element
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', 'forecast_data.csv');
+    document.body.appendChild(link);
+  
+    // Trigger click event
+    link.click();
+  
+    // Clean up
+    link.parentNode.removeChild(link);
+    window.URL.revokeObjectURL(url);
+  };
+  
+
   return (
-    <div className="forecasting-container"> {/* Add a container class */}
+    <div className="forecasting-container">
       <h1>Demand Forecasting</h1>
-      <div className="upload-section"> {/* Add a section class */}
+      <div className="upload-section">
         <input type="file" onChange={handleFileChange} />
         <button onClick={handleUpload}>Upload</button>
       </div>
 
-      <div className="form-section"> {/* Add a section class */}
-        <div className="form-group"> {/* Add a group class */}
+      <div className="form-section">
+        <div className="form-group">
           <label>Product:</label>
           <select value={product} onChange={(e) => setProduct(e.target.value)}>
             <option value="">Select Product</option>
@@ -275,7 +310,7 @@ function DemandForecasting() {
           </select>
         </div>
 
-        <div className="form-group"> {/* Add a group class */}
+        <div className="form-group">
           <label>Country:</label>
           <select value={country} onChange={(e) => setCountry(e.target.value)}>
             <option value="">Select Country</option>
@@ -285,25 +320,26 @@ function DemandForecasting() {
           </select>
         </div>
 
-        <div className="form-group"> {/* Add a group class */}
-          <label>Days to Forecast:</label>
-          <input type="number" value={daysToForecast} onChange={(e) => setDaysToForecast(e.target.value)} />
+        <div className="form-group">
+          <label>Years to Forecast:</label>
+          <input type="number" value={yearsToForecast} onChange={(e) => setYearsToForecast(e.target.value)} />
         </div>
 
         <button onClick={handleForecast}>Submit Forecast</button>
 
         {processing && <p>Processing...</p>}
+        {forecastGenerated && <button onClick={handleDownloadCSV}>Download CSV</button>} {/* Render download button when forecast is generated */}
       </div>
 
       {forecastPlot && (
-        <div className="plot-container"> {/* Add a container class */}
+        <div className="plot-container">
           <h2>Forecast Plot</h2>
           <Plot data={forecastPlot.data} layout={forecastPlot.layout} />
         </div>
       )}
 
       {componentsPlot && (
-        <div className="plot-container"> {/* Add a container class */}
+        <div className="plot-container">
           <h2>Forecast Components</h2>
           <img src={`data:image/png;base64,${componentsPlot}`} alt="Forecast Components" />
         </div>

@@ -1,5 +1,5 @@
 .forecasting-container {
-    max-width: 800px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 20px;
     background-color: #f9f9f9;
@@ -33,7 +33,7 @@
   
   .plot-container {
     margin-top: 20px;
-    /* min-width: 1200px; */
+    width: 1500px;
   }
   
   .error-message {
