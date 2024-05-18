@@ -1,19 +1,19 @@
 # AINEXUS
 
-# Server:
-## Create a new virtual environment
+## Server:
+### Create a new virtual environment
 python3 -m venv venv
 
-## Activate the new virtual environment
+### Activate the new virtual environment
 source venv/bin/activate
 
-## Install dependencies
+### Install dependencies
 pip install -r requirements.txt
 
-## Start the client
+### Start the client
 python3 app.py
 
 
-# Client:
-## start the frontend
+## Client:
+### start the frontend
 npm start
