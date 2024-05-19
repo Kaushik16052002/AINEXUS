@@ -17,3 +17,6 @@ python3 app.py
 ## Client:
 ### start the frontend
 npm start
+
+
+## Firebase Authentication
