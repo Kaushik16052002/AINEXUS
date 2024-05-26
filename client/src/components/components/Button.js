@@ -1,45 +1,76 @@
 // import React from 'react';
-// import './Button.css';
 // import { Link } from 'react-router-dom';
 
-// export function Button() {
+// export const Button = ({
+//   children,
+//   type,
+//   onClick,
+//   buttonStyle,
+//   buttonSize,
+//   linkTo
+// }) => {
+//   const checkButtonStyle = buttonStyle || 'btn--primary';
+//   const checkButtonSize = buttonSize || 'btn--medium';
+
 //   return (
-//     <Link to='sign-up'>
-//       <button className='btn'>Sign Up</button>
-//     </Link>
+//     <a href="https://drive.google.com/file/d/1cFt_rg0HOCAm-pBBEKGznwqT8ttoyxNM/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+//       <button
+//         className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+//         onClick={onClick}
+//         type={type}
+//       >
+//         {children}
+//       </button>
+//     </a>
 //   );
-// }
+// };
 
+
+
+
+
+
+
+
+
+
+
+
+
+// Button.js
 import React from 'react';
-import './Button.css';
-import { Link } from 'react-router-dom';
-
-const STYLES = ['btn--primary', 'btn--outline', 'btn--test'];
-
-const SIZES = ['btn--medium', 'btn--large'];
 
 export const Button = ({
   children,
   type,
   onClick,
   buttonStyle,
-  buttonSize
+  buttonSize,
+  link
 }) => {
-  const checkButtonStyle = STYLES.includes(buttonStyle)
-    ? buttonStyle
-    : STYLES[0];
+  const checkButtonStyle = buttonStyle || 'btn--primary';
+  const checkButtonSize = buttonSize || 'btn--medium';
 
-  const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
+  if (link) {
+    return (
+      <a href={link} target="_blank" rel="noopener noreferrer">
+        <button
+          className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+          type={type}
+        >
+          {children}
+        </button>
+      </a>
+    );
+  }
 
   return (
-    <Link to='/sign-up' className='btn-mobile'>
-      <button
-        className={`btn ${checkButtonStyle} ${checkButtonSize}`}
-        onClick={onClick}
-        type={type}
-      >
-        {children}
-      </button>
-    </Link>
+    <button
+      className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+      onClick={onClick}
+      type={type}
+    >
+      {children}
+    </button>
   );
 };
