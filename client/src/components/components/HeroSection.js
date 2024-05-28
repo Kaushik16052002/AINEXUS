@@ -73,7 +73,7 @@ function HeroSection() {
           buttonStyle='btn--primary'
           buttonSize='btn--large'
           onClick={() => console.log('hey')}
-          link="/more-info" // Link to the More Info page
+          link="/homelanding" // Link to the More Info page
         >
           MORE INFO <i className='far fa-play-circle' />
         </Button>

@@ -18,6 +18,8 @@ import DemandForecasting from './components/pages/DemandForecasting';
 import FinancialForecasting from "./components/pages/FinancialForecasting";
 import Cards from "./components/Cards";
 
+import HomeLanding from "./components/pages/LandingPage/HomeLanding";
+
 function App() {
   return (
     
@@ -37,6 +39,10 @@ function App() {
               <Route path="/data-generation" component={DataGenerationPage} />
               <Route path="/demandforecasting" component={DemandForecasting} />
               <Route path="/financialforecasting" component={FinancialForecasting} />
+
+
+              <Route path="/homelanding" component={HomeLanding} />
+
 
             </Switch>
           </AuthProvider>

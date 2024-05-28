@@ -1,0 +1,47 @@
+import React from "react";
+import Logo from "./landingimages/like.gif";
+import { BsTwitter } from "react-icons/bs";
+import { SiLinkedin } from "react-icons/si";
+import { BsYoutube } from "react-icons/bs";
+import { FaFacebookF } from "react-icons/fa";
+import './Total.css';
+
+const FooterLanding = () => {
+  return (
+    <div className="footer-wrapper">
+      <div className="footer-section-one">
+        <div className="footer-logo-container">
+          <img src={Logo} alt="" />
+        </div>
+        <div className="footer-icons">
+          <BsTwitter />
+          <SiLinkedin />
+          <BsYoutube />
+          <FaFacebookF />
+        </div>
+      </div>
+      <div className="footer-section-two">
+        <div className="footer-section-columns">
+          {/* <span>Qualtiy</span>
+          <span>Help</span>
+          <span>Share</span>
+          <span>Carrers</span>
+          <span>Testimonials</span>
+          <span>Work</span> */}
+        </div>
+        <div className="footer-section-columns">
+          <span>Emails : </span>
+          <span>krkaushikkumar@gmail.com</span>
+          <span>jyothsnaravi68@gmail.com</span>
+          <span>rashmir.bmsce.ac.in</span>
+        </div>
+        {/* <div className="footer-section-columns">
+          <span>Terms & Conditions</span>
+          <span>Privacy Policy</span>
+        </div> */}
+      </div>
+    </div>
+  );
+};
+
+export default FooterLanding;

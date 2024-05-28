@@ -3,6 +3,7 @@ import './Footer.css';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
 
+
 function Footer() {
   return (
     <div className='footer-container'>
@@ -11,7 +12,7 @@ function Footer() {
           Join the Adventure to receive  our exclusive content!
         </p>
         <p className='footer-subscription-text'>
-          You can unsubscribe at any time.
+          You can get exclusive content.
         </p>
         <div className='input-areas'>
           <form>
@@ -29,50 +30,50 @@ function Footer() {
         <div className='footer-link-wrapper'>
           <div class='footer-link-items'>
             <h2>About Us</h2>
-            <Link to='/sign-up'>How it works</Link>
-            <Link to='/'>Testimonials</Link>
-            <Link to='/'>Careers</Link>
-            <Link to='/'>Investors</Link>
-            <Link to='/'>Terms of Service</Link>
+            {/* <Link to='/sign-up'>How it works</Link> */}
+            <Link to='/homelanding'>Testimonials</Link>
+            {/* <Link to='/'>Careers</Link> */}
+            {/* <Link to='/'>Investors</Link> */}
+            {/* <Link to='/'>Terms of Service</Link> */}
           </div>
           <div class='footer-link-items'>
-            <h2>Contact Us</h2>
-            <Link to='/'>Contact</Link>
-            <Link to='/'>Support</Link>
-            <Link to='/'>Destinations</Link>
-            <Link to='/'>Sponsorships</Link>
+            {/* <h2>Contact Us</h2> */}
+            {/* <Link to='/'>Contact</Link> */}
+            {/* <Link to='/homelanding'>Support</Link> */}
+            {/* <Link to='/'>Destinations</Link> */}
+            {/* <Link to='/'>Sponsorships</Link> */}
           </div>
         </div>
         <div className='footer-link-wrapper'>
-          <div class='footer-link-items'>
+          {/* <div class='footer-link-items'>
             <h2>Videos</h2>
             <Link to='/'>Submit Video</Link>
             <Link to='/'>Ambassadors</Link>
             <Link to='/'>Agency</Link>
             <Link to='/'>Influencer</Link>
-          </div>
+          </div> */}
           <div class='footer-link-items'>
-            <h2>Social Media</h2>
-            <Link to='/'>Instagram</Link>
-            <Link to='/'>Facebook</Link>
-            <Link to='/'>Youtube</Link>
-            <Link to='/'>Twitter</Link>
+            <h2>Profile</h2>
+            <Link to='/'>Update</Link>
+            <Link to='/login'>Logout</Link>
+            {/* <Link to='/'>Youtube</Link> */}
+            {/* <Link to='/'>Twitter</Link> */}
           </div>
         </div>
       </div>
+
+      
+
+      
       <section class='social-media'>
         <div class='social-media-wrap'>
-          <div class='footer-logo'>
-            <Link to='/' className='social-logo'>
-              AI NEXUS
-              <i class='fab fa-typo3' />
-            </Link>
-          </div>
+          
+
           <small class='website-rights'>AI NEXUS © 2024</small>
           <div class='social-icons'>
             <Link
               class='social-icon-link facebook'
-              to='/'
+              to='/home'
               target='_blank'
               aria-label='Facebook'
             >
