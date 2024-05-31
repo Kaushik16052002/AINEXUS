@@ -8,3 +8,4 @@ requests
 scikit-learn
 tensorflow
 torch
+gunicorn==20.1.0
