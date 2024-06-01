@@ -24,7 +24,7 @@ import numpy as np
 
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+CORS(app, resources={r"/*": {"origins": "https://ainexus-one.vercel.app/login"}})
 
 # Global variable to store the dataset
 uploaded_dataset = None
